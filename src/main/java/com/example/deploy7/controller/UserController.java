@@ -2,10 +2,7 @@ package com.example.deploy7.controller;
 
 import com.example.deploy7.model.User;
 import com.example.deploy7.service.UserService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +19,10 @@ public class UserController {
     public String createUser(@RequestBody User request) {
         userService.addUser(request);
         return "user created successfully";
+    }
+
+    @GetMapping
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
     }
 }
